@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Time Clock</title>
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .clock-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .clock {
+            font-size: 36px;
+            color: #333;
+        }
+
+        .location {
+            font-size: 18px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock-container">
+        <div id="clock" class="clock">Loading...</div>
+        <div id="location" class="location">Detecting location...</div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Function to get the user's location based on IP address
+            function getUserLocation() {
+                fetch('https://ipapi.co/json/')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        const timeZone = data.timezone;
+                        const city = data.city;
+                        displayLocalTime(city, timeZone);
+                    })
+                    .catch(error => {
+                        console.error('Error fetching user location:', error);
+                    });
+            }
+
+            // Function to display the local time
+            function displayLocalTime(city, timeZone) {
+                const clock = document.getElementById('clock');
+                const locationElement = document.getElementById('location');
+
+                // Get the current time in the specified time zone
+                const currentTime = new Date().toLocaleString('en-US', {
+                    timeZone: timeZone,
+                    hour12: false, // Use 24-hour format
+                    hour: 'numeric',
+                    minute: 'numeric',
+                    second: 'numeric'
+                });
+
+                // Display the local time and city
+                clock.textContent = currentTime;
+                locationElement.textContent = 'Local Time in ' + city;
+
+                // Update the clock every second
+                setInterval(function() {
+                    const currentTime = new Date().toLocaleString('en-US', {
+                        timeZone: timeZone,
+                        hour12: false,
+                        hour: 'numeric',
+                        minute: 'numeric',
+                        second: 'numeric'
+                    });
+                    clock.textContent = currentTime;
+                }, 1000);
+            }
+
+            // Call the function to get the user's location and display the local time
+            getUserLocation();
+        });
+    </script>
+</body>
+</html>
