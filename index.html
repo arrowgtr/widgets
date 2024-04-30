@@ -1,0 +1,247 @@
+<div id="tv-program-widget" style="font-family: Arial, sans-serif; border: 1px solid #ccc; padding: 10px; max-width: 400px; margin: 0 auto;">
+    <ul id="program-list" style="list-style-type: none; padding: 0; text-align: center;"><!-- Program items will be dynamically added here --></ul>
+    </div>
+    <p>
+    <script type="text/javascript">// <![CDATA[
+    // JavaScript to populate the widget with static data
+            document.addEventListener("DOMContentLoaded", function() {
+                const programData = [
+                { day: "Δευτέρα", channels: [
+                        { channel: "", icon: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Alpha_TV_Logo_neu.png", programs: [
+                            { name: "Μαγειρική Εκπομπή", time: "09:00", image: "https://example.com/cooking_show_image.png" },
+                            { name: "Σειρά Δράμας", time: "11:00", image: "https://example.com/drama_series_image.png" },
+                            { name: "Ριάλιτι Τηλεόρασης", time: "13:00", image: "https://example.com/reality_tv_image.png" }
+                        ]},
+                        { channel: "", icon: "https://upload.wikimedia.org/wikipedia/commons/8/83/MEGA_CHANNEL.png?20150701160432", programs: [
+                            { name: "Αθλητισμός", time: "09:30", image: "https://example.com/sports_image.png" },
+                            { name: "Σειρά Κωμωδίας", time: "11:30", image: "https://example.com/comedy_series_image.png" },
+                            { name: "Τηλεοπτική Συζήτηση", time: "13:30", image: "https://example.com/talk_show_image.png" }
+                        ]},
+                         { channel: "", icon: "https://digea.gr/sites/default/files/epg-logos/new/logo-skai.jpg", programs: [
+                            { name: "Αθλητισμός", time: "09:30", image: "https://example.com/sports_image.png" },
+                            { name: "Σειρά Κωμωδίας", time: "11:30", image: "https://example.com/comedy_series_image.png" },
+                            { name: "Τηλεοπτική Συζήτηση", time: "13:30", image: "https://example.com/talk_show_image.png" }
+                        ]},
+                        { channel: "", icon: "https://digea.gr/sites/default/files/epg-logos/new/logo-star.jpg", programs: [
+                            { name: "Πρωινή Εκπομπή", time: "08:30", image: "https://example.com/morning_show_image.png" },
+                            { name: "Ειδήσεις", time: "10:30", image: "https://example.com/news_image.png" },
+                            { name: "Παιχνίδια", time: "12:30", image: "https://example.com/game_show_image.png" }
+                        ]},
+                        { channel: "", icon: "https://digea.gr/sites/default/files/epg-logos/new/logo-ant1.png", programs: [
+                            { name: "Επίδειξη Μόδας", time: "09:15", image: "https://example.com/fashion_show_image.png" },
+                            { name: "Ειδήσεις", time: "11:15", image: "https://example.com/news_image.png" },
+                            { name: "Παγιδευμένοι", time: "22:30-00:00", image: "https://pics.filmaffinity.com/pagidevmenoi-373900137-mmed.jpg" }
+                        ]}
+                        // Add more channels as needed
+                    ]},
+                    { day: "Τρίτη", channels: [
+                        { channel: "", icon: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Alpha_TV_Logo_neu.png", programs: [
+                            { name: "Super Κατερίνα", time: "10:00 - 13:00" },
+                            { name: "Σειρά Δράμας", time: "11:00" },
+                            { name: "Σασμός III ", time: "21:00 - 22:40" },
+                        ]},
+                        { channel: "", icon: "https://upload.wikimedia.org/wikipedia/commons/8/83/MEGA_CHANNEL.png?20150701160432", programs: [
+                            { name: "Αθλητισμός", time: "09:30", image: "https://example.com/sports_image.png" },
+                            { name: "Σειρά Κωμωδίας", time: "11:30", image: "https://example.com/comedy_series_image.png" },
+                            { name: "Τηλεοπτική Συζήτηση", time: "13:30", image: "https://example.com/talk_show_image.png" }
+                        ]},
+                         { channel: "", icon: "https://digea.gr/sites/default/files/epg-logos/new/logo-skai.jpg", programs: [
+                            { name: "Η Μαμά Μου Μαγειρεύει Καλύτερα Από Τη Δική Σου (Ε)", time: "15:00 - 16:30", image: "https://example.com/sports_image.png" },
+                            { name: "Ο Μονομάχος (Ε)", time: "18:45 - 19:50", image: "https://example.com/comedy_series_image.png" },
+                            { name: "Survivor", time: "21:00 - 01:00", image: "g" }
+                        ]},
+                        { channel: "", icon: "https://digea.gr/sites/default/files/epg-logos/new/logo-star.jpg", programs: [
+                            { name: "Πρωινή Εκπομπή", time: "08:30", image: "https://example.com/morning_show_image.png" },
+                            { name: "Ειδήσεις", time: "10:30", image: "https://example.com/news_image.png" },
+                            { name: "Παιχνίδια", time: "12:30", image: "https://example.com/game_show_image.png" }
+                        ]},
+                        { channel: "", icon: "https://digea.gr/sites/default/files/epg-logos/new/logo-ant1.png", programs: [
+                            { name: "Επίδειξη Μόδας", time: "09:15", image: "https://example.com/fashion_show_image.png" },
+                            { name: "Ειδήσεις", time: "11:15", image: "https://example.com/news_image.png" },
+                            { name: "Παγιδευμένοι", time: "22:30-00:00", image: "https://pics.filmaffinity.com/pagidevmenoi-373900137-mmed.jpg" }
+                        ]}
+                        // Add more channels as needed
+                    ]},
+
+                    { day: "Τετάρτη", channels: [
+                        { channel: "", icon: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Alpha_TV_Logo_neu.png", programs: [
+                            { name: "Μαγειρική Εκπομπή", time: "09:00", image: "https://example.com/cooking_show_image.png" },
+                            { name: "Σειρά Δράμας", time: "11:00", image: "https://example.com/drama_series_image.png" },
+                            { name: "Ριάλιτι Τηλεόρασης", time: "13:00", image: "https://example.com/reality_tv_image.png" }
+                        ]},
+                        { channel: "", icon: "https://upload.wikimedia.org/wikipedia/commons/8/83/MEGA_CHANNEL.png?20150701160432", programs: [
+                            { name: "Αθλητισμός", time: "09:30", image: "https://example.com/sports_image.png" },
+                            { name: "Σειρά Κωμωδίας", time: "11:30", image: "https://example.com/comedy_series_image.png" },
+                            { name: "Τηλεοπτική Συζήτηση", time: "13:30", image: "https://example.com/talk_show_image.png" }
+                        ]},
+                         { channel: "", icon: "https://digea.gr/sites/default/files/epg-logos/new/logo-skai.jpg", programs: [
+                            { name: "Αθλητισμός", time: "09:30", image: "https://example.com/sports_image.png" },
+                            { name: "Σειρά Κωμωδίας", time: "11:30", image: "https://example.com/comedy_series_image.png" },
+                            { name: "Τηλεοπτική Συζήτηση", time: "13:30", image: "https://example.com/talk_show_image.png" }
+                        ]},
+                        { channel: "", icon: "https://digea.gr/sites/default/files/epg-logos/new/logo-star.jpg", programs: [
+                            { name: "Πρωινή Εκπομπή", time: "08:30", image: "https://example.com/morning_show_image.png" },
+                            { name: "Ειδήσεις", time: "10:30", image: "https://example.com/news_image.png" },
+                            { name: "Παιχνίδια", time: "12:30", image: "https://example.com/game_show_image.png" }
+                        ]},
+                        { channel: "", icon: "https://digea.gr/sites/default/files/epg-logos/new/logo-ant1.png", programs: [
+                            { name: "Επίδειξη Μόδας", time: "09:15", image: "https://example.com/fashion_show_image.png" },
+                            { name: "Ειδήσεις", time: "11:15", image: "https://example.com/news_image.png" },
+                            { name: "Παγιδευμένοι", time: "22:30-00:00", image: "https://pics.filmaffinity.com/pagidevmenoi-373900137-mmed.jpg" }
+                        ]}
+                        // Add more channels as needed
+                    ]},
+                    { day: "Πέμπτη", channels: [
+                        { channel: "", icon: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Alpha_TV_Logo_neu.png", programs: [
+                            { name: "Μαγειρική Εκπομπή", time: "09:00", image: "https://example.com/cooking_show_image.png" },
+                            { name: "Σειρά Δράμας", time: "11:00", image: "https://example.com/drama_series_image.png" },
+                            { name: "Ριάλιτι Τηλεόρασης", time: "13:00", image: "https://example.com/reality_tv_image.png" }
+                        ]},
+                        { channel: "", icon: "https://upload.wikimedia.org/wikipedia/commons/8/83/MEGA_CHANNEL.png?20150701160432", programs: [
+                            { name: "Αθλητισμός", time: "09:30", image: "https://example.com/sports_image.png" },
+                            { name: "Σειρά Κωμωδίας", time: "11:30", image: "https://example.com/comedy_series_image.png" },
+                            { name: "Τηλεοπτική Συζήτηση", time: "13:30", image: "https://example.com/talk_show_image.png" }
+                        ]},
+                         { channel: "", icon: "https://digea.gr/sites/default/files/epg-logos/new/logo-skai.jpg", programs: [
+                            { name: "Αθλητισμός", time: "09:30", image: "https://example.com/sports_image.png" },
+                            { name: "Σειρά Κωμωδίας", time: "11:30", image: "https://example.com/comedy_series_image.png" },
+                            { name: "Τηλεοπτική Συζήτηση", time: "13:30", image: "https://example.com/talk_show_image.png" }
+                        ]},
+                        { channel: "", icon: "https://digea.gr/sites/default/files/epg-logos/new/logo-star.jpg", programs: [
+                            { name: "Πρωινή Εκπομπή", time: "08:30", image: "https://example.com/morning_show_image.png" },
+                            { name: "Ειδήσεις", time: "10:30", image: "https://example.com/news_image.png" },
+                            { name: "Παιχνίδια", time: "12:30", image: "https://example.com/game_show_image.png" }
+                        ]},
+                        { channel: "", icon: "https://digea.gr/sites/default/files/epg-logos/new/logo-ant1.png", programs: [
+                            { name: "Επίδειξη Μόδας", time: "09:15", image: "https://example.com/fashion_show_image.png" },
+                            { name: "Ειδήσεις", time: "11:15", image: "https://example.com/news_image.png" },
+                            { name: "Παγιδευμένοι", time: "22:30-00:00", image: "https://pics.filmaffinity.com/pagidevmenoi-373900137-mmed.jpg" }
+                        ]}
+                        // Add more channels as needed
+                    ]},
+                    { day: "Παρασκευή", channels: [
+                        { channel: "", icon: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Alpha_TV_Logo_neu.png", programs: [
+                            { name: "Μαγειρική Εκπομπή", time: "09:00", image: "https://example.com/cooking_show_image.png" },
+                            { name: "Σειρά Δράμας", time: "11:00", image: "https://example.com/drama_series_image.png" },
+                            { name: "Ριάλιτι Τηλεόρασης", time: "13:00", image: "https://example.com/reality_tv_image.png" }
+                        ]},
+                        { channel: "", icon: "https://upload.wikimedia.org/wikipedia/commons/8/83/MEGA_CHANNEL.png?20150701160432", programs: [
+                            { name: "Αθλητισμός", time: "09:30", image: "https://example.com/sports_image.png" },
+                            { name: "Σειρά Κωμωδίας", time: "11:30", image: "https://example.com/comedy_series_image.png" },
+                            { name: "Τηλεοπτική Συζήτηση", time: "13:30", image: "https://example.com/talk_show_image.png" }
+                        ]},
+                         { channel: "", icon: "https://digea.gr/sites/default/files/epg-logos/new/logo-skai.jpg", programs: [
+                            { name: "Αθλητισμός", time: "09:30", image: "https://example.com/sports_image.png" },
+                            { name: "Σειρά Κωμωδίας", time: "11:30", image: "https://example.com/comedy_series_image.png" },
+                            { name: "Τηλεοπτική Συζήτηση", time: "13:30", image: "https://example.com/talk_show_image.png" }
+                        ]},
+                        { channel: "", icon: "https://digea.gr/sites/default/files/epg-logos/new/logo-star.jpg", programs: [
+                            { name: "Πρωινή Εκπομπή", time: "08:30", image: "https://example.com/morning_show_image.png" },
+                            { name: "Ειδήσεις", time: "10:30", image: "https://example.com/news_image.png" },
+                            { name: "Παιχνίδια", time: "12:30", image: "https://example.com/game_show_image.png" }
+                        ]},
+                        { channel: "", icon: "https://digea.gr/sites/default/files/epg-logos/new/logo-ant1.png", programs: [
+                            { name: "Επίδειξη Μόδας", time: "09:15", image: "https://example.com/fashion_show_image.png" },
+                            { name: "Ειδήσεις", time: "11:15", image: "https://example.com/news_image.png" },
+                            { name: "Παγιδευμένοι", time: "22:30-00:00", image: "https://pics.filmaffinity.com/pagidevmenoi-373900137-mmed.jpg" }
+                        ]}
+                        // Add more channels as needed
+                    ]},
+                    { day: "Σάββατο", channels: [
+                        { channel: "", icon: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Alpha_TV_Logo_neu.png", programs: [
+                            { name: "Μαγειρική Εκπομπή", time: "09:00", image: "https://example.com/cooking_show_image.png" },
+                            { name: "Σειρά Δράμας", time: "11:00", image: "https://example.com/drama_series_image.png" },
+                            { name: "Ριάλιτι Τηλεόρασης", time: "13:00", image: "https://example.com/reality_tv_image.png" }
+                        ]},
+                        { channel: "", icon: "https://upload.wikimedia.org/wikipedia/commons/8/83/MEGA_CHANNEL.png?20150701160432", programs: [
+                            { name: "Αθλητισμός", time: "09:30", image: "https://example.com/sports_image.png" },
+                            { name: "Σειρά Κωμωδίας", time: "11:30", image: "https://example.com/comedy_series_image.png" },
+                            { name: "Τηλεοπτική Συζήτηση", time: "13:30", image: "https://example.com/talk_show_image.png" }
+                        ]},
+                         { channel: "", icon: "https://digea.gr/sites/default/files/epg-logos/new/logo-skai.jpg", programs: [
+                            { name: "Αθλητισμός", time: "09:30", image: "https://example.com/sports_image.png" },
+                            { name: "Σειρά Κωμωδίας", time: "11:30", image: "https://example.com/comedy_series_image.png" },
+                            { name: "Τηλεοπτική Συζήτηση", time: "13:30", image: "https://example.com/talk_show_image.png" }
+                        ]},
+                        { channel: "", icon: "https://digea.gr/sites/default/files/epg-logos/new/logo-star.jpg", programs: [
+                            { name: "Πρωινή Εκπομπή", time: "08:30", image: "https://example.com/morning_show_image.png" },
+                            { name: "Ειδήσεις", time: "10:30", image: "https://example.com/news_image.png" },
+                            { name: "Παιχνίδια", time: "12:30", image: "https://example.com/game_show_image.png" }
+                        ]},
+                        { channel: "", icon: "https://digea.gr/sites/default/files/epg-logos/new/logo-ant1.png", programs: [
+                            { name: "Επίδειξη Μόδας", time: "09:15", image: "https://example.com/fashion_show_image.png" },
+                            { name: "Ειδήσεις", time: "11:15", image: "https://example.com/news_image.png" },
+                            { name: "Παγιδευμένοι", time: "22:30-00:00", image: "https://pics.filmaffinity.com/pagidevmenoi-373900137-mmed.jpg" }
+                        ]}
+                        // Add more channels as needed
+                    ]},
+                    { day: "Κυριακή", channels: [
+                        { channel: "", icon: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Alpha_TV_Logo_neu.png", programs: [
+                            { name: "Μαγειρική Εκπομπή", time: "09:00", image: "https://example.com/cooking_show_image.png" },
+                            { name: "Σειρά Δράμας", time: "11:00", image: "https://example.com/drama_series_image.png" },
+                            { name: "Ριάλιτι Τηλεόρασης", time: "13:00", image: "https://example.com/reality_tv_image.png" }
+                        ]},
+                        { channel: "", icon: "https://upload.wikimedia.org/wikipedia/commons/8/83/MEGA_CHANNEL.png?20150701160432", programs: [
+                            { name: "Αθλητισμός", time: "09:30", image: "https://example.com/sports_image.png" },
+                            { name: "Σειρά Κωμωδίας", time: "11:30", image: "https://example.com/comedy_series_image.png" },
+                            { name: "Τηλεοπτική Συζήτηση", time: "13:30", image: "https://example.com/talk_show_image.png" }
+                        ]},
+                         { channel: "", icon: "https://digea.gr/sites/default/files/epg-logos/new/logo-skai.jpg", programs: [
+                            { name: "Αθλητισμός", time: "09:30", image: "https://example.com/sports_image.png" },
+                            { name: "Σειρά Κωμωδίας", time: "11:30", image: "https://example.com/comedy_series_image.png" },
+                            { name: "Τηλεοπτική Συζήτηση", time: "13:30", image: "https://example.com/talk_show_image.png" }
+                        ]},
+                        { channel: "", icon: "https://digea.gr/sites/default/files/epg-logos/new/logo-star.jpg", programs: [
+                            { name: "Πρωινή Εκπομπή", time: "08:30", image: "https://example.com/morning_show_image.png" },
+                            { name: "Ειδήσεις", time: "10:30", image: "https://example.com/news_image.png" },
+                            { name: "Παιχνίδια", time: "12:30", image: "https://example.com/game_show_image.png" }
+                        ]},
+                        { channel: "", icon: "https://digea.gr/sites/default/files/epg-logos/new/logo-ant1.png", programs: [
+                            { name: "Επίδειξη Μόδας", time: "09:15", image: "https://example.com/fashion_show_image.png" },
+                            { name: "Ειδήσεις", time: "11:15", image: "https://example.com/news_image.png" },
+                            { name: "Παγιδευμένοι", time: "22:30-00:00", image: "https://pics.filmaffinity.com/pagidevmenoi-373900137-mmed.jpg" }
+                        ]}
+                        // Add more channels as needed
+                    ]},
+                    // Add more days as needed
+                ];
+    
+                const programList = document.getElementById("program-list");
+    
+                // Get the current day of the week (0 for Sunday, 1 for Monday, ..., 6 for Saturday)
+                const currentDay = new Date().getDay();
+                const currentDayName = ['Κυριακή', 'Δευτέρα', 'Τρίτη', 'Τετάρτη', 'Πέμπτη', 'Παρασκευή', 'Σάββατο'][currentDay];
+    
+                // Find the program data for the current day
+                const currentDayData = programData.find(day => day.day === currentDayName);
+    
+                if (currentDayData) {
+                    // Populate the program list for the current day
+                    const dayItem = document.createElement("li");
+                    dayItem.innerHTML = `<strong style="font-size: 25px; font-weight: bold;">${currentDayData.day}</strong>`;
+                    programList.appendChild(dayItem);
+    
+                    currentDayData.channels.forEach(channel => {
+                        const channelItem = document.createElement("li");
+                        const channelIcon = document.createElement("img");
+                        channelIcon.setAttribute("src", channel.icon);
+                        channelIcon.setAttribute("style", "width: 50px; height: 30px; margin-right: 5px; vertical-align: middle;");
+                        channelItem.appendChild(channelIcon);
+                        channelItem.innerHTML += `<strong>${channel.channel}</strong>`;
+                        programList.appendChild(channelItem);
+    
+                        channel.programs.forEach(program => {
+                            const listItem = document.createElement("li");
+                            listItem.innerHTML = ` <span>${program.name}  ${program.time}</span>`;
+                            programList.appendChild(listItem);
+                        });
+                    });
+                } else {
+                    // If there's no program data for the current day, display a message
+                    const noProgramsMessage = document.createElement("li");
+                    noProgramsMessage.textContent = "Δεν υπάρχουν προγράμματα για σήμερα.";
+                    programList.appendChild(noProgramsMessage);
+                }
+            });
+    // ]]></script>
+    </p>
