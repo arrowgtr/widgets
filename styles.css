@@ -1,0 +1,21 @@
+   /* CSS styles */
+        #tv-program-widget {
+            font-family: Arial, sans-serif;
+            border: 1px solid #ccc;
+            padding: 10px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        .channel-icon {
+            width: 80px;
+            height: 30px;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
